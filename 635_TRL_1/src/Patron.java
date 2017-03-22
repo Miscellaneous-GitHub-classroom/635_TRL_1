@@ -27,6 +27,11 @@ public class Patron
 			return false;
 	}
 	
+	public String getPatronId()
+	{
+		return this.patronID;
+	}
+	
 	public ArrayList<Copy> getCopiesOut()
 	{
 		return this.copiesOut;

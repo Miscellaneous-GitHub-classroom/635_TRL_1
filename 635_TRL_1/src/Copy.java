@@ -28,7 +28,7 @@ public class Copy
 
 	public String toString()
 	{
-		return "Copy w/id= " + this.copyID + " -> " + toString();
+		return "Copy w/id= " + this.copyID;
 	}
 
 	@Override

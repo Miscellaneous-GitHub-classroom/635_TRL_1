@@ -2,9 +2,9 @@ import java.util.HashMap;
 
 public class CopyStore
 {
-	private HashMap<String, Copy> copies;
+	private static HashMap<String, Copy> copies;
 
-	public CopyStore()
+	static
 	{
 		copies = new HashMap<String, Copy>();
 
@@ -16,7 +16,7 @@ public class CopyStore
 
 	}
 
-	public Copy fetchCopy(String copyID)
+	public static Copy fetchCopy(String copyID)
 	{
 
 		return copies.get(copyID); // null if no such copy
