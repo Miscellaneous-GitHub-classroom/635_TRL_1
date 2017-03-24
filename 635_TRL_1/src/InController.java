@@ -69,6 +69,10 @@ public class InController
 
 	public void endInTransaction()
 	{
+		for (Copy c: beingReturned)
+		{
+			
+		}
 		return;
 	}
 
