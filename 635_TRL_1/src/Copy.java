@@ -48,7 +48,7 @@ public class Copy
 		System.out.println(c1.toString());
 		System.out.println(p1);
 		String[] array = new String[47];
-		
+
 		StdOut.println(array.toString());
 	}
 }

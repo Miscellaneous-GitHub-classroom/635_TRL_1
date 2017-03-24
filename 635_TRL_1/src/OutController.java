@@ -34,15 +34,16 @@ public class OutController
 
 	public boolean startOutTransaction()
 	{
-	/* Smell:
-	 * 	
-	 * Self-encapsulation
-	 * 
-	 * Refactoring: Extract Method
-	 */
+		/*
+		 * Smell:
+		 * 
+		 * Self-encapsulation
+		 * 
+		 * Refactoring: Extract Method
+		 */
 
 		clearCopiesEntered();
-		
+
 		return true;
 	}
 
@@ -50,7 +51,7 @@ public class OutController
 	{
 		this.copiesEntered.clear();
 	}
-	
+
 	public Patron enterPatronForCheckOut(String patronID)
 	{
 		this.currentPatron = this.pStore.fetchPatron(patronID);

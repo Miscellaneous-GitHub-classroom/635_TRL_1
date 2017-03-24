@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /*
  
 	1. Worker starts new transaction.
@@ -17,27 +19,32 @@
  */
 public class InController
 {
-	private PatronStore pStore;
-	private CopyStore cStore;
+	// private PatronStore pStore;
+	// private CopyStore cStore;
 
 	private Patron patron;
+	private ArrayList<Copy> beingReturned;
 
 	public InController(PatronStore ps, CopyStore cs)
 	{
-		this.pStore = ps;
-		this.cStore = cs;
+		// this.pStore = ps;
+		// this.cStore = cs;
+		beingReturned = new ArrayList<>();
 	}
 
 	// 1. Worker starts new transaction.
 	public boolean startInTransaction()
 	{
+		this.beingReturned.clear();
+
 		return true;
 	}
 
 	// 2. Worker enters Patron ID and SuD displays Patron info.
 	public Patron enterPatronForCheckIn(String patronID)
 	{
-		this.patron = pStore.fetchPatron(patronID);
+		this.patron = Stores.fetchPatron(patronID); // was
+													// this.pStore.fetchPatron()
 		return this.patron;
 	}
 
@@ -45,7 +52,15 @@ public class InController
 
 	public Copy enterCopyGoingIn(String copyID)
 	{
-		return null;
+		Copy c = Stores.fetchCopy(copyID);
+
+		// if (c.validateForCheckIn())
+		this.beingReturned.add(c);
+		// else
+		// {
+		// c.invalidBecause();
+		// }
+		return c;
 	}
 
 	// Repeat 3 for all copies

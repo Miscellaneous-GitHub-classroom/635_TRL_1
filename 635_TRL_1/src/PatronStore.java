@@ -13,7 +13,7 @@ public class PatronStore
 		patronHash.put("S1001", new Patron("Linda", "S1001"));
 		patronHash.put("S1002", new Patron("Anna", "S1002"));
 		patronHash.put("S1003", new Patron("Moxie", "S1003"));
-		patronHash.put(null, new Patron("No such patron",null));
+		patronHash.put(null, new Patron("No such patron", null));
 	}
 
 	public static Patron fetchPatron(String patronID)

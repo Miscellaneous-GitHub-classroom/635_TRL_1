@@ -18,25 +18,25 @@ public class Patron
 	{
 		if (!(p instanceof Patron))
 			return false;
-		
-		Patron p2 = (Patron)p;
-		
+
+		Patron p2 = (Patron) p;
+
 		if (this.patronID.equals(p2.patronID))
-				return true;
+			return true;
 		else
 			return false;
 	}
-	
+
 	public String getPatronId()
 	{
 		return this.patronID;
 	}
-	
+
 	public ArrayList<Copy> getCopiesOut()
 	{
 		return this.copiesOut;
 	}
-	
+
 	public boolean checkCopyOut(Copy c)
 	{
 		c.setOutTo(this);
@@ -79,11 +79,11 @@ public class Patron
 		Patron p1 = new Patron("James", "007");
 
 		System.out.println(p1);
-		
+
 		String s = "foo";
-		
-		StdOut.println (p1.equals(s));
-		
+
+		StdOut.println(p1.equals(s));
+
 	}
 
 }

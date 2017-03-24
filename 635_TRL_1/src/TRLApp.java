@@ -1,10 +1,12 @@
-public class TRLApp {
+public class TRLApp
+{
 	private static CopyStore cStore;
 	private static PatronStore pStore;
 	private static OutController outController;
 	private static InController inController;
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		cStore = new CopyStore();
 		pStore = new PatronStore();
 
@@ -15,11 +17,13 @@ public class TRLApp {
 
 		boolean quitting = false;
 
-		while (!quitting) {
+		while (!quitting)
+		{
 			printMenu();
 			String cmd = getCommand();
 
-			switch (cmd) {
+			switch (cmd)
+			{
 			case "1":
 				doCheckOut();
 				break;
@@ -37,7 +41,8 @@ public class TRLApp {
 		}
 	}
 
-	private static void doCheckOut() {
+	private static void doCheckOut()
+	{
 		StdOut.println("Checking copies out...");
 		StdOut.println("Enter Patron ID:");
 		String pid = StdIn.readString();
@@ -49,7 +54,8 @@ public class TRLApp {
 
 		StdOut.println("Checking out copies to patron: " + p);
 
-		while (true) {
+		while (true)
+		{
 			String copyID = getCopyID();
 
 			if (copyID.equals("0"))
@@ -57,11 +63,13 @@ public class TRLApp {
 
 			Copy c = null;
 
-			if (copyID != null) {
+			if (copyID != null)
+			{
 				c = outController.enterCopyGoingOut(copyID);
 				StdOut.println("Checking out copy: ");
 				StdOut.println(c);
-			} else
+			}
+			else
 				StdOut.println("Bad copy: reenter:");
 
 		}
@@ -71,13 +79,15 @@ public class TRLApp {
 		StdOut.println("End of doCheckOut()");
 	}
 
-	private static String getCopyID() {
+	private static String getCopyID()
+	{
 		StdOut.println("Enter copyID to check out, 0 to finish:");
 		String copyID = StdIn.readString();
 		return copyID;
 	}
 
-	private static void doCheckIn() {
+	private static void doCheckIn()
+	{
 		StdOut.println("Checking copies in...");
 		StdOut.println("Enter Patron ID:");
 		String pid = StdIn.readString();
@@ -90,7 +100,8 @@ public class TRLApp {
 
 		StdOut.println("Checking in copies from patron: " + p);
 
-		while (true) {
+		while (true)
+		{
 			StdOut.println("Enter copyID to check in, 0 to finish:");
 			String copyID = StdIn.readString();
 			if (copyID.equals("0"))
@@ -100,10 +111,12 @@ public class TRLApp {
 															// copy is already
 															// checked out?
 
-			if (c != null) {
+			if (c != null)
+			{
 				StdOut.println("Checking in copy: ");
 				StdOut.println(c);
-			} else
+			}
+			else
 				StdOut.println("Bad copy: reenter:");
 		}
 
@@ -112,7 +125,8 @@ public class TRLApp {
 		StdOut.println("End of doCheckIn()");
 	}
 
-	private static void doDisplayPatronInfo() {
+	private static void doDisplayPatronInfo()
+	{
 		StdOut.println("Enter patron ID: ");
 		String pid = StdIn.readString();
 
@@ -120,7 +134,8 @@ public class TRLApp {
 		StdOut.println(p);
 	}
 
-	private static void printMenu() {
+	private static void printMenu()
+	{
 		StdOut.println("Select an option:\n");
 		StdOut.println("1 => Start check out transaction");
 		StdOut.println("2 => Start check in transaction");
@@ -128,7 +143,8 @@ public class TRLApp {
 		StdOut.println("0 => Quit");
 	}
 
-	private static String getCommand() {
+	private static String getCommand()
+	{
 		return StdIn.readString();
 	}
 }
